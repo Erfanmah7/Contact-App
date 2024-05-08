@@ -1,0 +1,36 @@
+.container{
+
+width: 100%;
+text-align: center;
+
+}
+
+.container h1{
+margin-top: 20px;
+color: black;
+
+}
+
+.container p{
+margin-top: 20px;
+color: gray;
+
+}
+
+.container a{
+
+text-decoration: none;
+padding: 5px 10px;
+border-radius: 15px;
+color: #fff;
+background-color: blueviolet;
+transition: .2s all ease-in-out;
+
+}
+
+.container a:hover{
+
+color: blueviolet;
+background-color: #fff;
+
+}
