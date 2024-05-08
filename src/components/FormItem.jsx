@@ -1,16 +1,25 @@
 import React from "react";
 
-function FormItem({name}) {
+function FormItem({
+  data: { id, name, lastname, email, phone },
+  deleteHandeler,
+}) {
   return (
-    <div>
+    <>
       <li>
         <p>{name}</p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <button>del</button>
+        <p>{lastname}</p>
+        <p>
+          <span>📬️</span>
+          {email}
+        </p>
+        <p>
+          <span>📞</span>
+          {phone}
+        </p>
+        <button onClick={() => deleteHandeler(id)}>🗑️</button>
       </li>
-    </div>
+    </>
   );
 }
 

@@ -26,7 +26,6 @@ const inputs = [
 ];
 
 function Form() {
-  const contacts = [];
   const [alert, setAlert] = useState("");
   const [forms, setForms] = useState([]);
   const [form, setForm] = useState({
@@ -43,69 +42,45 @@ function Form() {
     setForm((form) => ({ ...form, [name]: value }));
   };
 
+  const deleteHandeler = (id) => {
+    const newforms = forms.filter((form) => form.id != id);
+    setForms(newforms);
+  };
+
   const addHandeler = (e) => {
-    setAlert("");
     if (!form.name || !form.lastname || !form.email || !form.phone) {
       setAlert("Please your information");
-    } else {
-      const newForm = { ...form, id: v4() };
-      setForms((forms) => ({ ...forms, newForm }));
-      setForm({
-        name: "",
-        lastname: "",
-        email: "",
-        phone: "",
-      });
+      return;
     }
+    setAlert("");
+    const newForm = { ...form, id: v4() };
+    setForms((forms) => [...forms, newForm]);
+    setForm({
+      name: "",
+      lastname: "",
+      email: "",
+      phone: "",
+    });
   };
 
   return (
-    <div>
+    <>
       <div>
-        {/* <input
-          type="text"
-          placeholder="Name"
-          value={form.name}
-          name="name"
-          onChange={changeHandeler}
-        />
-        <input
-          type="text"
-          placeholder="Last Name"
-          value={form.lastname}
-          name="lastname"
-          onChange={changeHandeler}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={form.email}
-          name="email"
-          onChange={changeHandeler}
-        />
-        <input
-          type="number"
-          placeholder="Phone"
-          value={form.phone}
-          name="phone"
-          onChange={changeHandeler}
-        /> */}
-
         {inputs.map((input, index) => (
           <input
             key={index}
             onChange={changeHandeler}
             placeholder={input.placeholder}
             name={input.name}
-            value={form[name]}
+            value={form[input.name]}
             type={input.type}
           ></input>
         ))}
         <button onClick={addHandeler}>Add Contact</button>
       </div>
-      <div>{alert}</div>
-      <FormList forms={forms} />
-    </div>
+      <div>{alert && <p>{alert}</p>}</div>
+      <FormList forms={forms} deleteHandeler={deleteHandeler}/>
+    </>
   );
 }
 
