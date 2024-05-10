@@ -1,29 +1,8 @@
 import React, { useState } from "react";
 import FormList from "./FormList";
+import inputs from "../js/inputs";
+import styles from "../components/form.module.css";
 import { v4 } from "uuid";
-
-const inputs = [
-  {
-    type: "text",
-    placeholder: "Name",
-    name: "name",
-  },
-  {
-    type: "text",
-    placeholder: "Last Name",
-    name: "lastname",
-  },
-  {
-    type: "email",
-    placeholder: "Email",
-    name: "email",
-  },
-  {
-    type: "number",
-    placeholder: "Phone",
-    name: "phone",
-  },
-];
 
 function Form() {
   const [alert, setAlert] = useState("");
@@ -65,7 +44,7 @@ function Form() {
 
   return (
     <>
-      <div>
+      <div className={styles.container}>
         {inputs.map((input, index) => (
           <input
             key={index}
@@ -78,8 +57,8 @@ function Form() {
         ))}
         <button onClick={addHandeler}>Add Contact</button>
       </div>
-      <div>{alert && <p>{alert}</p>}</div>
-      <FormList forms={forms} deleteHandeler={deleteHandeler}/>
+      <div className={alert && styles.error}>{alert && <p>{alert}</p>}</div>
+      <FormList forms={forms} deleteHandeler={deleteHandeler} />
     </>
   );
 }

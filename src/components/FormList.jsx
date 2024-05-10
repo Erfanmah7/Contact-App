@@ -1,5 +1,6 @@
 import React from "react";
 import FormItem from "./FormItem";
+import styles from "../components/formlist.module.css";
 
 function FormList({ forms, deleteHandeler }) {
   return (

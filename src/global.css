@@ -1,15 +1,11 @@
-*{
-
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-
-    width: 1000px;
-    height: 200vh;
-    margin: auto;
-
+body {
+  max-width: 1000px;
+  height: 200vh;
+  margin: auto;
 }
