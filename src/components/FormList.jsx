@@ -5,19 +5,22 @@ import styles from "../components/formlist.module.css";
 function FormList({ forms, deleteHandeler }) {
   return (
     <>
-      {forms.length ? (
-        <ul>
-          {forms.map((form) => (
-            <FormItem
-              key={form.id}
-              data={form}
-              deleteHandeler={deleteHandeler}
-            />
-          ))}
-        </ul>
-      ) : (
-        <p>No Contacts</p>
-      )}
+      <h1 className={styles.title}>Contacts</h1>
+      <div className={styles.container}>
+        {forms.length ? (
+          <ul>
+            {forms.map((form) => (
+              <FormItem
+                key={form.id}
+                data={form}
+                deleteHandeler={deleteHandeler}
+              />
+            ))}
+          </ul>
+        ) : (
+          <p className={styles.message}>No Contacts</p>
+        )}
+      </div>
     </>
   );
 }

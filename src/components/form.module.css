@@ -14,13 +14,13 @@
   margin: 10px 5px;
   padding: 10px;
   border-radius: 10px;
-  border: none;border: 2px solid rgb(201, 155, 245);
+  border: none;
+  border: 2px solid rgb(201, 155, 245);
 }
 
 .container input:focus {
   outline: none;
   border: 2px solid blueviolet;
-  
 }
 
 .container button {
@@ -41,14 +41,21 @@
   color: blueviolet;
 }
 
-.error{
+.error {
+  padding: 10px;
+  background-color: red;
+  color: #fff;
+  text-align: center;
+  margin: 20px 0;
+  border-radius: 10px;
+}
 
-padding: 10px;
-background-color: red;
-color: #fff;
-text-align: center;
-margin: 20px 0;
-border-radius: 10px;
+@media (max-width: 364px) {
+  .container button {
+    width: 100%;
+  }
 
-
+  .container input {
+    width: 100%;
+  }
 }

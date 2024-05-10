@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../components/formitem.module.css";
 
 function FormItem({
   data: { id, name, lastname, email, phone },
@@ -6,9 +7,8 @@ function FormItem({
 }) {
   return (
     <>
-      <li>
-        <p>{name}</p>
-        <p>{lastname}</p>
+      <li className={styles.list}>
+        <p>{name} {lastname}</p>
         <p>
           <span>📬️</span>
           {email}
